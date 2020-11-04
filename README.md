@@ -26,8 +26,6 @@ hist-md                    # Markdown (md) shortcut
 ```
 usage: hist-format [-h] [-f FORMAT] [-c COUNT] [-l]
 
-Format xonsh history
-
 optional arguments:
   -h, --help            show this help message and exit
   -f FORMAT, --format FORMAT
