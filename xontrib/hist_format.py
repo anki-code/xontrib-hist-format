@@ -1,7 +1,7 @@
 def _hist_format(args):
     import argparse, os
 
-    argp = argparse.ArgumentParser(prog='hist-format', description="Format xonsh history")
+    argp = argparse.ArgumentParser(prog='hist-format', description="Format xonsh history to post it to Github or another page.")
     argp.add_argument('-f', '--format', default='md', help="Format: md.")
     argp.add_argument('-c', '--count', default=10, help="Count of commands")
     argp.add_argument('-l', '--lines', action='store_true', help="Add additional lines before and after.")
