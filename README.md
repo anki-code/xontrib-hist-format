@@ -45,7 +45,7 @@ ls / | head -n 3
 ```
 Run hist-format:
 ```
-hist-md -c 2 -l
+hist-md -c 2 -l    # latest 2 commands with header and footer as line
 ```
 As result you will get the output that you can copy and paste in Github comment or md-file:
 
