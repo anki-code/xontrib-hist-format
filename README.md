@@ -21,7 +21,8 @@ xpip install xontrib-hist-format
 ```bash
 xontrib load hist_format
 hist-format --help         # Basic command
-hist-md                    # Markdown (md) shortcut
+hist-md                    # Markdown format shortcut
+hist-txt                   # Text format shortcut
 ```
 ```
 usage: hist-format [-h] [-f FORMAT] [-c COUNT] [-l]
@@ -29,7 +30,7 @@ usage: hist-format [-h] [-f FORMAT] [-c COUNT] [-l]
 optional arguments:
   -h, --help            show this help message and exit
   -f FORMAT, --format FORMAT
-                        Format: md.
+                        Format: md, txt.
   -c COUNT, --count COUNT
                         Count of commands
   -l, --lines           Add additional lines before and after.

@@ -69,4 +69,5 @@ def _hist_format(args):
 
 aliases['hist-format'] = _hist_format
 aliases['hist-md'] = ['hist-format', '-f', 'md']
+aliases['hist-txt'] = ['hist-format', '-f', 'txt']
 del _hist_format
