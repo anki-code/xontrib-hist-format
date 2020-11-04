@@ -71,6 +71,13 @@ ls / | head -n 3
 
 ------------------------------------------------------------------------------------------------------------------
 
+## Clipboard
+
+You can redirect the output to clipboard. Example for [xclip](https://github.com/astrand/xclip):
+```
+format-md | xclip
+```
+
 ## Known issues
 
 Not every command has output in the `__xonsh__.history`.
