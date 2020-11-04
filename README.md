@@ -75,7 +75,7 @@ ls / | head -n 3
 
 You can redirect the output to clipboard. Example for [xclip](https://github.com/astrand/xclip):
 ```
-format-md | xclip
+hist-md | xclip
 ```
 
 ## Known issues
