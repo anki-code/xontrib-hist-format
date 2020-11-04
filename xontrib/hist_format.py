@@ -34,9 +34,10 @@ def _hist_format(args):
     if opt.lines:
         print()
         print('-' * term_cols)
-    print('\n<sub>[hist-format](https://github.com/anki-code/xontrib-hist-format) output:</sub>\n')
-    print(format['begin'])
 
+    print('\n<sub>[hist-format](https://github.com/anki-code/xontrib-hist-format) output:</sub>\n')
+
+    print(format['begin'])
     for i in cmds_idx[::-1]:
         h = __xonsh__.history[i]
         print(h.cmd.rstrip(), end='')
@@ -48,6 +49,7 @@ def _hist_format(args):
     print(format['end'])
 
     print('\n<sub>[hist-format](https://github.com/anki-code/xontrib-hist-format) command:</sub>\n')
+
     print(format['begin'])
     for c in cmds:
         print(c)
