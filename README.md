@@ -19,7 +19,7 @@ xpip install xontrib-hist-format
 ## Usage
 
 ```bash
-xontrib load hist-format
+xontrib load hist_format
 hist-format --help         # Basic command
 hist-md                    # Markdown (md) shortcut
 ```
@@ -39,12 +39,12 @@ optional arguments:
 
 ## Example
 Run commands:
-```
+```python
 echo 123
 ls / | head -n 3
 ```
 Run hist-format:
-```
+```python
 hist-md -c 2 -l    # latest 2 commands with header and footer as line
 ```
 As result you will get the output that you can copy and paste in Github comment or md-file:
