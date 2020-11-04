@@ -74,7 +74,7 @@ ls / | head -n 3
 ## Clipboard
 
 You can redirect the output to clipboard. Example for [xclip](https://github.com/astrand/xclip):
-```
+```python
 hist-md | xclip
 ```
 
