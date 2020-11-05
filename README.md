@@ -25,7 +25,9 @@ hist-md                    # Markdown format shortcut
 hist-txt                   # Text format shortcut
 ```
 ```
-usage: hist-format [-h] [-f FORMAT] [-c COUNT] [-l]
+usage: hist-format [-h] [-f FORMAT] [-c COUNT] [-cmd] [-l]
+
+Format xonsh history to post it to Github or another page.
 
 optional arguments:
   -h, --help            show this help message and exit
@@ -33,6 +35,8 @@ optional arguments:
                         Format: md, txt.
   -c COUNT, --count COUNT
                         Count of commands
+  -cmd, --show-commands
+                        Show commands in distinct section.
   -l, --lines           Add additional lines before and after.
 ```
 
