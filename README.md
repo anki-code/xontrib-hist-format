@@ -2,6 +2,10 @@
 Format xonsh history to post it to Github or another page.
 </p>
 
+<p align="center">
+The mission of xontrib-hist-format is to make commands repeatable, copy-pastable and save time to preparing.
+</p>
+
 <p align="center">  
 If you like the idea click ⭐ on the repo and stay tuned.
 </p>
