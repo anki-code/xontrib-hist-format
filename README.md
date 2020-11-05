@@ -25,7 +25,7 @@ hist-md                    # Markdown format shortcut
 hist-txt                   # Text format shortcut
 ```
 ```
-usage: hist-format [-h] [-f FORMAT] [-c COUNT] [-cmd] [-l]
+usage: hist-format [-h] [-f FORMAT] [-c COUNT] [-l] [--lines]
 
 Format xonsh history to post it to Github or another page.
 
@@ -35,9 +35,9 @@ optional arguments:
                         Format: md, txt.
   -c COUNT, --count COUNT
                         Count of commands
-  -cmd, --show-commands
+  -l, --show-commands-list
                         Show commands in distinct section.
-  -l, --lines           Add additional lines before and after.
+  --lines               Add additional lines before and after.
 ```
 
 ## Example
@@ -48,13 +48,13 @@ ls / | head -n 3
 ```
 Run hist-format:
 ```python
-hist-md -c 2 -l    # latest 2 commands with header and footer as line
+hist-md -c 2 -l --lines    # latest 2 commands + commands list + header and footer as line
 ```
 As result you will get the output that you can copy and paste to the Github comment or md-file:
 
 ------------------------------------------------------------------------------------------------------------------
 
-<sub>[hist-format](https://github.com/anki-code/xontrib-hist-format) output:</sub>
+Output:
 
 ```python
 echo 123
@@ -65,13 +65,16 @@ ls / | head -n 3
 #cdrom
 #dev
 
+# Prepared by xontrib-hist-format
 ```
 
-<sub>[hist-format](https://github.com/anki-code/xontrib-hist-format) commands:</sub>
+Commands:
 
 ```python
 echo 123
 ls / | head -n 3
+
+# Prepared by xontrib-hist-format
 ```
 
 ------------------------------------------------------------------------------------------------------------------

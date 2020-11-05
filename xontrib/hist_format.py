@@ -4,8 +4,8 @@ def _hist_format(args):
     argp = argparse.ArgumentParser(prog='hist-format', description="Format xonsh history to post it to Github or another page.")
     argp.add_argument('-f', '--format', default='md', help="Format: md, txt.")
     argp.add_argument('-c', '--count', default=10, help="Count of commands")
-    argp.add_argument('-cmd', '--show-commands', action='store_true', help="Show commands in distinct section.")
-    argp.add_argument('-l', '--lines', action='store_true', help="Add additional lines before and after.")
+    argp.add_argument('-l', '--show-commands-list', action='store_true', help="Show commands in distinct section.")
+    argp.add_argument('--lines', action='store_true', help="Add additional lines before and after.")
     opt = argp.parse_args(args)
 
     opt.count = int(opt.count)
@@ -54,7 +54,7 @@ def _hist_format(args):
     print(format['comment'] + ' Prepared by xontrib-hist-format')
     print(format['end'])
 
-    if opt.show_commands:
+    if opt.show_commands_list:
         if opt.format == 'md':
             print('\nCommands:\n')
         else:
