@@ -37,7 +37,7 @@ def _hist_format(args):
         print('-' * term_cols)
 
     if opt.format == 'md':
-        print('\n<sub>[hist-format](https://github.com/anki-code/xontrib-hist-format) output:</sub>\n')
+        print('\n[History](https://github.com/anki-code/xontrib-hist-format) output:\n')
     else:
         print('\nOutput:\n')
 
@@ -53,7 +53,7 @@ def _hist_format(args):
     print(format['end'])
 
     if opt.format == 'md':
-        print('\n<sub>[hist-format](https://github.com/anki-code/xontrib-hist-format) commands:</sub>\n')
+        print('\n[History](https://github.com/anki-code/xontrib-hist-format) commands:\n')
     else:
         print('\nCommands:\n')
 
