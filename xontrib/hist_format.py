@@ -4,6 +4,7 @@ def _hist_format(args):
     argp = argparse.ArgumentParser(prog='hist-format', description="Format xonsh history to post it to Github or another page.")
     argp.add_argument('-f', '--format', default='md', help="Format: md, txt.")
     argp.add_argument('-c', '--count', default=10, help="Count of commands")
+    argp.add_argument('-sc', '--show-commands', action='store_true', help="Show commands in distinct section")
     argp.add_argument('-l', '--lines', action='store_true', help="Add additional lines before and after.")
     opt = argp.parse_args(args)
 
@@ -37,7 +38,7 @@ def _hist_format(args):
         print('-' * term_cols)
 
     if opt.format == 'md':
-        print('\n[History](https://github.com/anki-code/xontrib-hist-format) output:\n')
+        print('\nOutput:\n')
     else:
         print('\nOutput:\n')
 
@@ -48,19 +49,24 @@ def _hist_format(args):
         if h.out:
             print()
             print('\n'.join([format['comment'] + l for l in str(h.out).rstrip().split('\n')]))
+            print()
+            print(format['comment'] + ' Prepared by xontrib-hist-format')
         print()
         cmds.append(h.cmd.rstrip())
     print(format['end'])
 
-    if opt.format == 'md':
-        print('\n[History](https://github.com/anki-code/xontrib-hist-format) commands:\n')
-    else:
-        print('\nCommands:\n')
+    if opt.show_commands:
+        if opt.format == 'md':
+            print('\nCommands:\n')
+        else:
+            print('\nCommands:\n')
 
-    print(format['begin'])
-    for c in cmds:
-        print(c)
-    print(format['end'])
+        print(format['begin'])
+        for c in cmds:
+            print(c)
+        print()
+        print(format['comment'] + ' Prepared by xontrib-hist-format')
+        print(format['end'])
 
     if opt.lines:
         print()
