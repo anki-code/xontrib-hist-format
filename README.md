@@ -28,6 +28,8 @@ hist-format --help         # Basic command
 hist-md                    # Markdown format shortcut
 hist-txt                   # Text format shortcut
 ```
+
+Arguments:
 ```
 usage: hist-format [-h] [-f FORMAT] [-c COUNT] [-l] [-m] [--lines]
 
@@ -44,6 +46,9 @@ optional arguments:
   -m, --min             Make block minimized i.e. by adding <details> tag in Markdown.
   --lines               Add additional lines before and after.
 ```
+
+Note! The `clear` command is used as marker of the beginning of commands list. If you run commands 1, 2, 3 
+then run `clear`, and run 4, 5, 6 and finally run `hist-md` it will show 4, 5, 6 commands.
 
 ## Example
 Run commands:
