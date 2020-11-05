@@ -25,7 +25,7 @@ hist-md                    # Markdown format shortcut
 hist-txt                   # Text format shortcut
 ```
 ```
-usage: hist-format [-h] [-f FORMAT] [-c COUNT] [-l] [--lines]
+usage: hist-format [-h] [-f FORMAT] [-c COUNT] [-l] [-m] [--lines]
 
 Format xonsh history to post it to Github or another page.
 
@@ -37,6 +37,7 @@ optional arguments:
                         Count of commands
   -l, --show-commands-list
                         Show commands in distinct section.
+  -m, --min             Make block minimized i.e. by adding <details> tag in Markdown.
   --lines               Add additional lines before and after.
 ```
 

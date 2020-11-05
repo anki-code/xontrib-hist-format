@@ -5,6 +5,7 @@ def _hist_format(args):
     argp.add_argument('-f', '--format', default='md', help="Format: md, txt.")
     argp.add_argument('-c', '--count', default=10, help="Count of commands")
     argp.add_argument('-l', '--show-commands-list', action='store_true', help="Show commands in distinct section.")
+    argp.add_argument('-m', '--min', action='store_true', help="Make block minimized i.e. by adding <details> tag in Markdown.")
     argp.add_argument('--lines', action='store_true', help="Add additional lines before and after.")
     opt = argp.parse_args(args)
 
@@ -27,11 +28,16 @@ def _hist_format(args):
     cmds_idx = []
     for i in list(range(len(__xonsh__.history) - 1, -1, -1)):
         h = __xonsh__.history[i]
-        if 'hist-format' in h.cmd or 'hist-md' in h.cmd:
+        if 'hist-format' in h.cmd or 'hist-md' in h.cmd or 'hist-txt' in h.cmd:
             continue
         if len(cmds_idx) >= opt.count or h.cmd.rstrip() == 'clear':
             break
         cmds_idx.append(i)
+
+    if opt.min:
+        if opt.format == 'md':
+            print()
+            print('<details>')
 
     if opt.lines:
         print()
@@ -71,6 +77,10 @@ def _hist_format(args):
         print()
         print('-' * term_cols)
 
+    if opt.min:
+        if opt.format == 'md':
+            print()
+            print('</details>')
 
 aliases['hist-format'] = _hist_format
 aliases['hist-md'] = ['hist-format', '-f', 'md']
