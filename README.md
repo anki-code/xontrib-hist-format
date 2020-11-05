@@ -13,8 +13,6 @@ If you like the idea click ⭐ on the repo and stay tuned.
 
 ## Installation
 
-To install use pip:
-
 ```bash
 xpip install xontrib-hist-format
 # or: xpip install -U git+https://github.com/anki-code/xontrib-hist-format
