@@ -12,8 +12,8 @@ def _hist_format(args):
     opt.count = int(opt.count)
 
     formats = {
-        'md': {'begin': '```python', 'end': '```', 'comment': '#'},
-        'txt': {'begin': '', 'end': '', 'comment': '#'}
+        'md': {'begin': '```python', 'end': '```', 'comment': '# '},
+        'txt': {'begin': '', 'end': '', 'comment': '# '}
     }
     format = formats[opt.format]
 
@@ -57,7 +57,7 @@ def _hist_format(args):
             print('\n'.join([format['comment'] + l for l in str(h.out).rstrip().split('\n')]))
         print()
         cmds.append(h.cmd.rstrip())
-    print(format['comment'] + ' Prepared by xontrib-hist-format')
+    print(format['comment'] + 'Prepared by xontrib-hist-format')
     print(format['end'])
 
     if opt.show_commands_list:
@@ -70,7 +70,7 @@ def _hist_format(args):
         for c in cmds:
             print(c)
         print()
-        print(format['comment'] + ' Prepared by xontrib-hist-format')
+        print(format['comment'] + 'Prepared by xontrib-hist-format')
         print(format['end'])
 
     if opt.lines:
