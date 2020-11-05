@@ -49,6 +49,7 @@ optional arguments:
 
 Note! The `clear` command is used as marker of the beginning of commands list. If you run commands 1, 2, 3 
 then run `clear`, and run 4, 5, 6 and finally run `hist-md` it will show 4, 5, 6 commands.
+Feel free to open an issue with feedback on this approach.
 
 ## Example
 Run commands:
