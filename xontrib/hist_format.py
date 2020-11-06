@@ -66,7 +66,7 @@ def _hist_format(args):
                 if (opt.output_head_count + opt.output_tail_count) < len(output_lines):
                     print('\n'.join(output_lines[:opt.output_head_count]))
                     print(format['comment'])
-                    print(format['comment'] + f'---- Skipped {len(output_lines) - opt.output_head_count - opt.output_tail_count} lines of output ----')
+                    print(format['comment'] + f'---- Skipped {len(output_lines) - opt.output_head_count - opt.output_tail_count} lines of output.')
                     print(format['comment'])
                     print('\n'.join(output_lines[-opt.output_tail_count:]))
                 else:
@@ -76,11 +76,11 @@ def _hist_format(args):
                 print('\n'.join(output_lines[:opt.output_head_count]))
                 skipped = len(output_lines) - opt.output_head_count
                 if skipped > 0:
-                    print(format['comment'] + f'---- Skipped next {skipped} lines of output ----')
+                    print(format['comment'] + f'---- Skipped next {skipped} lines of output.')
             elif opt.output_tail_count:
                 skipped = len(output_lines) - opt.output_tail_count
                 if skipped > 0:
-                    print(format['comment'] + f'---- Skipped prev {skipped} lines of output ----')
+                    print(format['comment'] + f'---- Skipped prev {skipped} lines of output.')
                 print('\n'.join(output_lines[-opt.output_tail_count:]))
             else:
                 print('\n'.join(output_lines))
