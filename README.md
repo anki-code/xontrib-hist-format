@@ -29,7 +29,8 @@ hist-txt                   # Text format shortcut
 
 Arguments:
 ```
-usage: hist-format [-h] [-f FORMAT] [-c COMMANDS_COUNT] [-l] [-H [OUTPUT_HEAD_COUNT]] [-T [OUTPUT_TAIL_COUNT]]
+usage: hist-format [-h] [-f FORMAT] [-c COMMANDS_COUNT] [-l] 
+                   [-H [OUTPUT_HEAD_COUNT]] [-T [OUTPUT_TAIL_COUNT]]
                    [-m] [--lines]
 
 Format xonsh history to post it to Github or another page.
