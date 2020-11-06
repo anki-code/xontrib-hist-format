@@ -3,13 +3,19 @@ def _hist_format(args):
 
     argp = argparse.ArgumentParser(prog='hist-format', description="Format xonsh history to post it to Github or another page.")
     argp.add_argument('-f', '--format', default='md', help="Format: md, txt.")
-    argp.add_argument('-c', '--count', default=10, help="Count of commands")
-    argp.add_argument('-l', '--show-commands-list', action='store_true', help="Show commands in distinct section.")
+    argp.add_argument('-c', '--commands-count', default=10, help="Count of commands")
+    argp.add_argument('-l', '--commands-list', action='store_true', help="Show commands in distinct section.")
+    argp.add_argument('-H', '--output-head-count', nargs='?', const=10, help="Count of lines from output head to show.")
+    argp.add_argument('-T', '--output-tail-count', nargs='?', const=10, help="Count of lines from output tail to show.")
     argp.add_argument('-m', '--min', action='store_true', help="Make block minimized i.e. by adding <details> tag in Markdown.")
     argp.add_argument('--lines', action='store_true', help="Add additional lines before and after.")
     opt = argp.parse_args(args)
 
-    opt.count = int(opt.count)
+    opt.commands_count = abs(int(opt.commands_count))
+    if opt.output_head:
+        opt.output_head = abs(int(opt.output_head))
+    if opt.output_tail:
+        opt.output_tail = abs(int(opt.output_tail))
 
     formats = {
         'md': {'begin': '```python', 'end': '```', 'comment': '# '},
@@ -30,7 +36,7 @@ def _hist_format(args):
         h = __xonsh__.history[i]
         if 'hist-format' in h.cmd or 'hist-md' in h.cmd or 'hist-txt' in h.cmd:
             continue
-        if len(cmds_idx) >= opt.count or h.cmd.rstrip() == 'clear':
+        if len(cmds_idx) >= opt.commands_count or h.cmd.rstrip() == 'clear':
             break
         cmds_idx.append(i)
 
@@ -54,13 +60,37 @@ def _hist_format(args):
         print(h.cmd.rstrip(), end='')
         if h.out:
             print()
-            print('\n'.join([format['comment'] + l for l in str(h.out).rstrip().split('\n')]))
+            output_lines = [format['comment'] + l for l in str(h.out).rstrip().split('\n')]
+
+            if opt.output_head and opt.output_tail:
+                if (opt.output_head + opt.output_tail) < len(output_lines):
+                    print('\n'.join(output_lines[:opt.output_head]))
+                    print(format['comment'])
+                    print(format['comment'] + f'---- Skipped {len(output_lines) - opt.output_head - opt.output_tail} lines of output ----')
+                    print(format['comment'])
+                    print('\n'.join(output_lines[-opt.output_tail:]))
+                else:
+                    print('\n'.join(output_lines))
+
+            elif opt.output_head:
+                print('\n'.join(output_lines[:opt.output_head]))
+                skipped = len(output_lines) - opt.output_head
+                if skipped > 0:
+                    print(format['comment'] + f'---- Skipped next {skipped} lines of output ----')
+            elif opt.output_tail:
+                skipped = len(output_lines) - opt.output_tail
+                if skipped > 0:
+                    print(format['comment'] + f'---- Skipped prev {skipped} lines of output ----')
+                print('\n'.join(output_lines[-opt.output_tail:]))
+            else:
+                print('\n'.join(output_lines))
+
         print()
         cmds.append(h.cmd.rstrip())
     print(format['comment'] + 'Prepared by xontrib-hist-format')
     print(format['end'])
 
-    if opt.show_commands_list:
+    if opt.commands_list:
         if opt.format == 'md':
             print('\nCommands:\n')
         else:

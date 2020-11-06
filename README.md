@@ -29,7 +29,8 @@ hist-txt                   # Text format shortcut
 
 Arguments:
 ```
-usage: hist-format [-h] [-f FORMAT] [-c COUNT] [-l] [-m] [--lines]
+usage: hist-format [-h] [-f FORMAT] [-c COMMANDS_COUNT] [-l] [-H [OUTPUT_HEAD_COUNT]] [-T [OUTPUT_TAIL_COUNT]]
+                   [-m] [--lines]
 
 Format xonsh history to post it to Github or another page.
 
@@ -37,12 +38,16 @@ optional arguments:
   -h, --help            show this help message and exit
   -f FORMAT, --format FORMAT
                         Format: md, txt.
-  -c COUNT, --count COUNT
+  -c COMMANDS_COUNT, --commands-count COMMANDS_COUNT
                         Count of commands
-  -l, --show-commands-list
-                        Show commands in distinct section.
+  -l, --commands-list   Show commands in distinct section.
+  -H [OUTPUT_HEAD_COUNT], --output-head-count [OUTPUT_HEAD_COUNT]
+                        Count of lines from output head to show.
+  -T [OUTPUT_TAIL_COUNT], --output-tail-count [OUTPUT_TAIL_COUNT]
+                        Count of lines from output tail to show.
   -m, --min             Make block minimized i.e. by adding <details> tag in Markdown.
   --lines               Add additional lines before and after.
+
 ```
 
 Note! The `clear` command is used as marker of the beginning of commands list. If you run commands 1, 2, 3 
