@@ -12,10 +12,10 @@ def _hist_format(args):
     opt = argp.parse_args(args)
 
     opt.commands_count = abs(int(opt.commands_count))
-    if opt.output_head:
-        opt.output_head = abs(int(opt.output_head))
-    if opt.output_tail:
-        opt.output_tail = abs(int(opt.output_tail))
+    if opt.output_head_count:
+        opt.output_head_count = abs(int(opt.output_head_count))
+    if opt.output_tail_count:
+        opt.output_tail_count = abs(int(opt.output_tail_count))
 
     formats = {
         'md': {'begin': '```python', 'end': '```', 'comment': '# '},
@@ -62,26 +62,26 @@ def _hist_format(args):
             print()
             output_lines = [format['comment'] + l for l in str(h.out).rstrip().split('\n')]
 
-            if opt.output_head and opt.output_tail:
-                if (opt.output_head + opt.output_tail) < len(output_lines):
-                    print('\n'.join(output_lines[:opt.output_head]))
+            if opt.output_head_count and opt.output_tail_count:
+                if (opt.output_head_count + opt.output_tail_count) < len(output_lines):
+                    print('\n'.join(output_lines[:opt.output_head_count]))
                     print(format['comment'])
-                    print(format['comment'] + f'---- Skipped {len(output_lines) - opt.output_head - opt.output_tail} lines of output ----')
+                    print(format['comment'] + f'---- Skipped {len(output_lines) - opt.output_head_count - opt.output_tail_count} lines of output ----')
                     print(format['comment'])
-                    print('\n'.join(output_lines[-opt.output_tail:]))
+                    print('\n'.join(output_lines[-opt.output_tail_count:]))
                 else:
                     print('\n'.join(output_lines))
 
-            elif opt.output_head:
-                print('\n'.join(output_lines[:opt.output_head]))
-                skipped = len(output_lines) - opt.output_head
+            elif opt.output_head_count:
+                print('\n'.join(output_lines[:opt.output_head_count]))
+                skipped = len(output_lines) - opt.output_head_count
                 if skipped > 0:
                     print(format['comment'] + f'---- Skipped next {skipped} lines of output ----')
-            elif opt.output_tail:
-                skipped = len(output_lines) - opt.output_tail
+            elif opt.output_tail_count:
+                skipped = len(output_lines) - opt.output_tail_count
                 if skipped > 0:
                     print(format['comment'] + f'---- Skipped prev {skipped} lines of output ----')
-                print('\n'.join(output_lines[-opt.output_tail:]))
+                print('\n'.join(output_lines[-opt.output_tail_count:]))
             else:
                 print('\n'.join(output_lines))
 
