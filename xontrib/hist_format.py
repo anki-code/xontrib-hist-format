@@ -32,7 +32,7 @@ def _hist_format(args):
 
     cmds = []
     cmds_idx = []
-    for i in list(range(len(__xonsh__.history) - 1, -1, -1)):
+    for i in list(range(len(__xonsh__.history[:]) - 1, -1, -1)):
         h = __xonsh__.history[i]
         if 'hist-format' in h.cmd or 'hist-md' in h.cmd or 'hist-txt' in h.cmd:
             continue
