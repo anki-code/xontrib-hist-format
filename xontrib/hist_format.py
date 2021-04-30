@@ -32,8 +32,9 @@ def _hist_format(args):
 
     cmds = []
     cmds_idx = []
-    for i in list(range(len(__xonsh__.history[:]) - 1, -1, -1)):
-        h = __xonsh__.history[i]
+    history = [h for h in __xonsh__.history[:]]  # Fix https://github.com/xonsh/xonsh/issues/4248
+    for i in list(range(len(history) - 1, -1, -1)):
+        h = history[i]
         if 'hist-format' in h.cmd or 'hist-md' in h.cmd or 'hist-txt' in h.cmd:
             continue
         if len(cmds_idx) >= opt.commands_count or h.cmd.rstrip() == 'clear':
@@ -56,7 +57,7 @@ def _hist_format(args):
 
     print(format['begin'])
     for i in cmds_idx[::-1]:
-        h = __xonsh__.history[i]
+        h = history[i]
         print(h.cmd.rstrip(), end='')
         if h.out:
             print()
