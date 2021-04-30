@@ -9,7 +9,7 @@ except (IOError, OSError):
 
 setuptools.setup(
     name='xontrib-hist-format',
-    version='0.0.10',
+    version='0.0.11',
     license='MIT',
     author='anki-code',
     author_email='no@no.no',
