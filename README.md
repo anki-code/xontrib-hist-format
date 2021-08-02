@@ -103,7 +103,13 @@ hist-md | xclip
 
 ## Known issues
 
-Not every command has output in the `__xonsh__.history`. Workaround in some cases is to use pipe into `head` i.e. `cat file | head`.
+#### Not every command has output in the `__xonsh__.history`. 
+
+Workaround in some cases is to use pipe into `head` i.e. `cat file | head`.
+
+#### Not working after [xonsh 0.10.0](https://github.com/xonsh/xonsh/releases/tag/0.10.0) ([4283](https://github.com/xonsh/xonsh/pull/4283))
+
+Workaround: Check `XONSH_CAPTURE_ALWAYS` environment variable to bring the capturing of the output back. 
 
 ## Credits
 
