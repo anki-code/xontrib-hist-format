@@ -23,6 +23,8 @@ def _hist_format(args):
     }
     format = formats[opt.format]
 
+    footer = os.environ.get("XONTRIB_HIST_FORMAT_FOOTER", 'Prepared by xontrib-hist-format'):
+
     if opt.lines:
         try:
             ts = os.get_terminal_size()
@@ -88,7 +90,7 @@ def _hist_format(args):
 
         print()
         cmds.append(h.cmd.rstrip())
-    print(format['comment'] + 'Prepared by xontrib-hist-format')
+    print(format['comment'] + footer)
     print(format['end'])
 
     if opt.commands_list:
@@ -101,7 +103,7 @@ def _hist_format(args):
         for c in cmds:
             print(c)
         print()
-        print(format['comment'] + 'Prepared by xontrib-hist-format')
+        print(format['comment'] + footer)
         print(format['end'])
 
     if opt.lines:
