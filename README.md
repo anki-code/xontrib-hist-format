@@ -92,7 +92,7 @@ ls / | head -n 3
 # Prepared by xontrib-hist-format
 ```
 
-You can disable the "Prepared by" message by setting `XONSH_HISTFMT_BYLINE=False` in your environment. If you like this xontrib, tell your friends!
+You can disable the "Prepared by" message by setting `XONTRIB_HIST_FORMAT_FOOTER = ''` in your environment. If you like this xontrib, tell your friends!
 
 ------------------------------------------------------------------------------------------------------------------
 
