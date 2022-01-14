@@ -6,7 +6,7 @@ Format xonsh history to post it to Github or another page.
 The mission of xontrib-hist-format is to make commands repeatable, copy-pastable and save time to preparing.
 </p>
 
-<p align="center">  
+<p align="center">
 If you like the idea click ⭐ on the repo and stay tuned.
 </p>
 
@@ -29,7 +29,7 @@ hist-txt                   # Text format shortcut
 
 Arguments:
 ```
-usage: hist-format [-h] [-f FORMAT] [-c COMMANDS_COUNT] [-l] 
+usage: hist-format [-h] [-f FORMAT] [-c COMMANDS_COUNT] [-l]
                    [-H [OUTPUT_HEAD_COUNT]] [-T [OUTPUT_TAIL_COUNT]]
                    [-m] [--lines]
 
@@ -51,7 +51,7 @@ optional arguments:
 
 ```
 
-Note! The `clear` command is used as marker of the beginning of commands list. If you run commands 1, 2, 3 
+Note! The `clear` command is used as marker of the beginning of commands list. If you run commands 1, 2, 3
 then run `clear`, and run 4, 5, 6 and finally run `hist-md` it will show 4, 5, 6 commands.
 Feel free to open an issue with feedback on this approach.
 
@@ -92,6 +92,7 @@ ls / | head -n 3
 # Prepared by xontrib-hist-format
 ```
 
+You can disable the "Prepared by" message by setting `XONSH_HISTFMT_BYLINE=False` in your environment. If you like this xontrib, tell your friends!
 ------------------------------------------------------------------------------------------------------------------
 
 ## Clipboard
@@ -103,13 +104,13 @@ hist-md | xclip
 
 ## Known issues
 
-#### Not every command has output in the `__xonsh__.history`. 
+#### Not every command has output in the `__xonsh__.history`.
 
 Workaround in some cases is to use pipe into `head` i.e. `cat file | head`.
 
 #### Not working after [xonsh 0.10.0](https://github.com/xonsh/xonsh/releases/tag/0.10.0) ([4283](https://github.com/xonsh/xonsh/pull/4283))
 
-Workaround: Check `XONSH_CAPTURE_ALWAYS` environment variable to bring the capturing of the output back. 
+Workaround: Check `XONSH_CAPTURE_ALWAYS` environment variable to bring the capturing of the output back.
 
 ## Credits
 
