@@ -23,7 +23,10 @@ def _hist_format(args):
     }
     format = formats[opt.format]
 
-    byline = 'Prepared by xontrib-hist-format'
+    if os.environ.get("XONSH_HISTFMT_BYLINE", True):
+        byline = 'Prepared by xontrib-hist-format'
+    else:
+        byline = ""
 
     if opt.lines:
         try:
