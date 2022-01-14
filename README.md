@@ -93,6 +93,7 @@ ls / | head -n 3
 ```
 
 You can disable the "Prepared by" message by setting `XONSH_HISTFMT_BYLINE=False` in your environment. If you like this xontrib, tell your friends!
+
 ------------------------------------------------------------------------------------------------------------------
 
 ## Clipboard
