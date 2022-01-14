@@ -23,7 +23,7 @@ def _hist_format(args):
     }
     format = formats[opt.format]
 
-    footer = os.environ.get("XONTRIB_HIST_FORMAT_FOOTER", 'Prepared by xontrib-hist-format'):
+    footer = os.environ.get("XONTRIB_HIST_FORMAT_FOOTER", 'Prepared by xontrib-hist-format')
 
     if opt.lines:
         try:
