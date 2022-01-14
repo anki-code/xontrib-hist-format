@@ -23,10 +23,7 @@ def _hist_format(args):
     }
     format = formats[opt.format]
 
-    if os.environ.get("XONSH_HISTFMT_BYLINE", True):
-        byline = 'Prepared by xontrib-hist-format'
-    else:
-        byline = ""
+    footer = os.environ.get("XONTRIB_HIST_FORMAT_FOOTER", 'Prepared by xontrib-hist-format'):
 
     if opt.lines:
         try:
@@ -93,7 +90,7 @@ def _hist_format(args):
 
         print()
         cmds.append(h.cmd.rstrip())
-    print(format['comment'] + byline)
+    print(format['comment'] + footer)
     print(format['end'])
 
     if opt.commands_list:
@@ -106,7 +103,7 @@ def _hist_format(args):
         for c in cmds:
             print(c)
         print()
-        print(format['comment'] + byline)
+        print(format['comment'] + footer)
         print(format['end'])
 
     if opt.lines:
