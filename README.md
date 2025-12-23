@@ -10,7 +10,6 @@ The mission of xontrib-hist-format is to make commands repeatable, copy-pastable
 If you like the idea click ⭐ on the repo and stay tuned.
 </p>
 
-
 ## Installation
 
 ```bash
@@ -20,7 +19,12 @@ xpip install xontrib-hist-format
 
 ## Usage
 
-```bash
+Starting from xonsh 0.10.0 ([4283](https://github.com/xonsh/xonsh/pull/4283)) it's needed to set [`$XONSH_CAPTURE_ALWAYS`](https://xon.sh/envvars.html#xonsh-capture-always) before using xontrib-hist-format. Be careful by using this setting and read the env variable description.
+```xsh
+$XONSH_CAPTURE_ALWAYS = True
+```
+
+```xsh
 xontrib load hist_format
 hist-format --help         # Basic command
 hist-md                    # Markdown format shortcut
@@ -57,12 +61,12 @@ Feel free to open an issue with feedback on this approach.
 
 ## Example
 Run commands:
-```python
+```xsh
 echo 123
 ls / | head -n 3
 ```
 Run hist-format:
-```python
+```xsh
 hist-md -c 2 -l --lines    # latest 2 commands + commands list + header and footer as line
 ```
 As result you will get the output that you can copy and paste to the Github comment or md-file:
@@ -71,7 +75,7 @@ As result you will get the output that you can copy and paste to the Github comm
 
 Output:
 
-```python
+```xsh
 echo 123
 #123
 
@@ -85,7 +89,7 @@ ls / | head -n 3
 
 Commands:
 
-```python
+```xsh
 echo 123
 ls / | head -n 3
 
@@ -99,7 +103,7 @@ You can disable the "Prepared by" message by setting `XONTRIB_HIST_FORMAT_FOOTER
 ## Clipboard
 
 You can redirect the output to clipboard. Example for [xclip](https://github.com/astrand/xclip):
-```python
+```xsh
 hist-md | xclip
 ```
 
@@ -108,10 +112,6 @@ hist-md | xclip
 #### Not every command has output in the `__xonsh__.history`.
 
 Workaround in some cases is to use pipe into `head` i.e. `cat file | head`.
-
-#### Not working after [xonsh 0.10.0](https://github.com/xonsh/xonsh/releases/tag/0.10.0) ([4283](https://github.com/xonsh/xonsh/pull/4283))
-
-Workaround: Check `XONSH_CAPTURE_ALWAYS` environment variable to bring the capturing of the output back.
 
 ## Credits
 
